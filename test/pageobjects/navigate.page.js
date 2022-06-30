@@ -1,41 +1,47 @@
 const Page = require('./page');
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
-class LoginPage extends Page {
+class NavigatePage extends Page {
     /**
      * define selectors using getter methods
      */
-    get btnSignIn () {
+    get navNews () {
         return $('button=sign in');
     }
 
-    get inputUsername () {
+    get navArena () {
         return $('[name="email"]');
     }
 
-    get inputPassword () {
+    get navWatch () {
         return $('[name="password"]');
     }
 
-    get btnSubmit () {
+    get navLearn () {
         return $('button=Sign in');
     }
 
-    get loginAvatar () {
+    get navCommunity () {
         return $('.sc-hmjpVf.eifQJd');
+    }
+    
+    get navShop () {
+        return $('.sc-hmjpVf.eifQJd');
+    }
+    
+    get navUs () {
+        return $('.sc-hmjpVf.eifQJd');
+    }
+
+    get navLinks () {
+        return $('.sc-eJwWfJ.kalwux');
     }
 
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
-    async login (username, password, btnclick = true) {
-        await this.btnSignIn.click();
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        btnclick ? await this.btnSubmit.click() : '';
+    async getLink (linkname) {
+        return await this.navLinks.$(`=${linkname}`);
     }
 
     /**
@@ -47,4 +53,4 @@ class LoginPage extends Page {
     }
 }
 
-module.exports = new LoginPage();
+module.exports = new NavigatePage();
