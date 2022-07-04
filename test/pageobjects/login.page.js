@@ -11,6 +11,10 @@ class LoginPage extends Page {
         return $('button=sign in');
     }
 
+    get btnBecome () {
+        return $('button=Become a member');
+    }
+
     get inputUsername () {
         return $('[name="email"]');
     }
